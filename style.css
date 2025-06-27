@@ -97,3 +97,13 @@ button:hover {
     border-radius: 4px;
     font-style: italic;
 }
+
+.explanation {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #eef9f1;
+    border-left: 4px solid #27ae60;
+    color: #2d6a4f;
+    border-radius: 5px;
+    font-size: 14px;
+}
