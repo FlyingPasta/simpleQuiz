@@ -1,0 +1,99 @@
+/* 全体の基本スタイル */
+body {
+    font-family: "Segoe UI", "ヒラギノ角ゴ ProN", sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ジャンル選択セクション */
+#genre-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#genre-selection label {
+    background-color: #e9ecef;
+    /* グレー系背景 */
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#genre-selection input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* クイズ本体 */
+#quiz-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 入力欄 */
+#user-answer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* ボタン（マゼンタ） */
+button {
+    background-color: #d63384;
+    /* アクセント色のみマゼンタ */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #b02a6e;
+}
+
+/* 結果表示 */
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.correct {
+    color: #27ae60;
+}
+
+.incorrect {
+    color: #e74c3c;
+}
+
+/* ヒント表示（控えめな中立色） */
+#hint {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f3f5;
+    /* ごく薄いグレー */
+    color: #444;
+    border-left: 4px solid #ced4da;
+    border-radius: 4px;
+    font-style: italic;
+}
