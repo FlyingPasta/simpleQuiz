@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8" name="robots" content="noindex">
-    <title>シンプルクイズ</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シンプルクイズ</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <main class="container">
+
     <h1>クイズに挑戦！</h1>
 
-    <div id="genre-selection"></div>
-    <button onclick="loadQuiz()">出題する</button>
+    <!-- ジャンル選択 -->
+    <section class="genre-section">
+      <h2>ジャンルを選択</h2>
 
-    <div id="quiz-container" style="margin-top:20px;"></div>
+      <div id="genre-selection">
+        <!-- JavaScriptから生成 -->
+      </div>
 
-    <script src="script.js"></script>
+      <button id="start-button" class="primary-button">
+        出題する
+      </button>
+    </section>
+
+    <!-- クイズ -->
+    <section id="quiz-container" class="quiz-card">
+      <p class="start-message">
+        ジャンルを選択して「出題する」を押してください。
+      </p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
 </body>
-
 </html>
