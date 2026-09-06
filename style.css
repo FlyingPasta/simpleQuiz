@@ -1,109 +1,756 @@
-/* 全体の基本スタイル */
-body {
-    font-family: "Segoe UI", "ヒラギノ角ゴ ProN", sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    padding: 40px;
-    max-width: 600px;
-    margin: 0 auto;
+/* ========================================
+   Elegant Light Quiz UI
+======================================== */
+
+:root {
+  --accent: #c52f78;
+  --accent-dark: #a82463;
+  --accent-soft: #f8e9f0;
+
+  --background: #f7f7f6;
+  --surface: #ffffff;
+  --surface-subtle: #fafafa;
+
+  --border: #e7e5e3;
+  --border-dark: #d8d5d2;
+
+  --text: #272523;
+  --text-sub: #6f6b67;
+  --text-muted: #99948f;
+
+  --success: #2e8060;
+  --danger: #c14b57;
+
+  --shadow:
+    0 8px 30px rgba(35, 30, 25, 0.055);
+
+  --radius-large: 18px;
+  --radius-medium: 11px;
+  --radius-small: 8px;
 }
+
+
+/* ========================================
+   Reset
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--text);
+
+  background: var(--background);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ========================================
+   Main container
+======================================== */
+
+.container {
+  width: min(100% - 36px, 720px);
+
+  margin: 0 auto;
+
+  padding: 58px 0 72px;
+}
+
+
+/* ========================================
+   Title
+======================================== */
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+  margin: 0;
+
+  text-align: center;
+
+  font-size: clamp(30px, 5vw, 38px);
+
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+
+  color: var(--text);
 }
 
-/* ジャンル選択セクション */
-#genre-selection {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+
+h1::after {
+  content: "";
+
+  display: block;
+
+  width: 34px;
+  height: 2px;
+
+  margin: 17px auto 38px;
+
+  background: var(--accent);
 }
+
+
+/* ========================================
+   Genre section
+======================================== */
+
+.genre-section {
+  padding: 25px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow);
+
+  margin-bottom: 20px;
+}
+
+
+.genre-section h2 {
+  margin: 0 0 17px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: var(--text-sub);
+
+  letter-spacing: 0.02em;
+}
+
+
+/* ========================================
+   Genre selection
+======================================== */
+
+#genre-selection {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
 
 #genre-selection label {
-    background-color: #e9ecef;
-    /* グレー系背景 */
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  background: #f8f7f6;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-small);
+
+  color: var(--text-sub);
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
 }
+
+
+#genre-selection label:hover {
+  background: #f2f0ef;
+
+  border-color: var(--border-dark);
+
+  color: var(--text);
+}
+
 
 #genre-selection input[type="checkbox"] {
-    margin-right: 5px;
+  width: 15px;
+  height: 15px;
+
+  margin: 0;
+
+  accent-color: var(--accent);
+
+  cursor: pointer;
 }
 
-/* クイズ本体 */
-#quiz-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
 
-/* 入力欄 */
-#user-answer {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+/* ========================================
+   Buttons
+======================================== */
 
-/* ボタン（マゼンタ） */
 button {
-    background-color: #d63384;
-    /* アクセント色のみマゼンタ */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-right: 10px;
-    transition: background-color 0.2s ease;
+  appearance: none;
+
+  font-family: inherit;
+
+  border-radius: var(--radius-small);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.15s ease,
+    box-shadow 0.18s ease;
 }
 
-button:hover {
-    background-color: #b02a6e;
+
+button:active {
+  transform: translateY(1px);
 }
 
-/* 結果表示 */
-#result {
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 18px;
+
+/* ========================================
+   Primary button
+======================================== */
+
+.primary-button {
+  width: 100%;
+
+  padding: 13px 18px;
+
+  color: #ffffff;
+
+  background: var(--accent);
+
+  border: 1px solid var(--accent);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
 }
+
+
+.primary-button:hover {
+  background: var(--accent-dark);
+
+  border-color: var(--accent-dark);
+
+  box-shadow:
+    0 5px 15px rgba(197, 47, 120, 0.16);
+}
+
+
+/* ========================================
+   Quiz card
+======================================== */
+
+.quiz-card {
+  min-height: 420px;
+
+  padding: 30px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow);
+
+  animation: cardIn 0.25s ease;
+}
+
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   Start message
+======================================== */
+
+.start-message {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 360px;
+
+  margin: 0;
+
+  text-align: center;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   Quiz header
+======================================== */
+
+.quiz-header {
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+
+.genre-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 9px;
+
+  color: var(--text-sub);
+
+  background: #f4f3f1;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+}
+
+
+/* ========================================
+   Question
+======================================== */
+
+.question {
+  margin-bottom: 29px;
+
+  color: var(--text);
+
+  font-size: clamp(21px, 4vw, 26px);
+
+  font-weight: 700;
+
+  line-height: 1.65;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   Answer input
+======================================== */
+
+.answer-area {
+  margin-bottom: 12px;
+}
+
+
+#user-answer {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  color: var(--text);
+
+  background: #fff;
+
+  border: 1px solid var(--border-dark);
+
+  border-radius: var(--radius-medium);
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+#user-answer::placeholder {
+  color: #aaa5a0;
+}
+
+
+#user-answer:hover {
+  border-color: #c8c4c0;
+}
+
+
+#user-answer:focus {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 3px var(--accent-soft);
+}
+
+
+/* ========================================
+   Button group
+======================================== */
+
+.button-group {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 9px;
+}
+
+
+.button-group button {
+  min-height: 45px;
+
+  padding: 11px 14px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   Secondary button
+======================================== */
+
+.secondary-button {
+  color: var(--text-sub);
+
+  background: #ffffff;
+
+  border: 1px solid var(--border-dark);
+}
+
+
+.secondary-button:hover {
+  color: var(--text);
+
+  background: #faf9f8;
+
+  border-color: #beb9b5;
+}
+
+
+.secondary-button:disabled {
+  opacity: 0.45;
+
+  cursor: default;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ========================================
+   Hint
+======================================== */
+
+.hint-area {
+  min-height: 12px;
+
+  margin-top: 19px;
+}
+
+
+.hint-item {
+  margin-bottom: 8px;
+
+  padding: 11px 13px;
+
+  color: var(--text-sub);
+
+  background: var(--surface-subtle);
+
+  border: 1px solid var(--border);
+
+  border-left: 3px solid #bdb8b4;
+
+  border-radius: var(--radius-small);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  animation: hintIn 0.2s ease;
+}
+
+
+@keyframes hintIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   Result
+======================================== */
+
+.result-area {
+  margin-top: 23px;
+
+  line-height: 1.7;
+}
+
 
 .correct {
-    color: #27ae60;
+  margin-bottom: 7px;
+
+  color: var(--success);
+
+  font-size: 21px;
+
+  font-weight: 700;
 }
+
 
 .incorrect {
-    color: #e74c3c;
+  color: var(--danger);
+
+  font-weight: 600;
 }
 
-/* ヒント表示（控えめな中立色） */
-#hint {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f1f3f5;
-    /* ごく薄いグレー */
-    color: #444;
-    border-left: 4px solid #ced4da;
-    border-radius: 4px;
-    font-style: italic;
+
+.warning {
+  padding: 10px 13px;
+
+  color: var(--text-sub);
+
+  background: #f7f6f5;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-small);
+
+  font-size: 14px;
 }
+
+
+/* ========================================
+   Answer display
+======================================== */
+
+.answer-display {
+  margin-top: 3px;
+
+  color: var(--text);
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   Explanation
+======================================== */
 
 .explanation {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #eef9f1;
-    border-left: 4px solid #27ae60;
-    color: #2d6a4f;
-    border-radius: 5px;
-    font-size: 14px;
+  margin-top: 16px;
+
+  padding: 16px 17px;
+
+  background: #faf9f8;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  color: var(--text-sub);
+
+  font-size: 14px;
+
+  line-height: 1.85;
+
+  white-space: pre-line;
+}
+
+
+.explanation-title {
+  margin-bottom: 6px;
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+
+/* ========================================
+   Give up
+======================================== */
+
+.give-up-button {
+  margin-top: 14px;
+
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  background: #77726e;
+
+  border: 1px solid #77726e;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.give-up-button:hover {
+  background: #625e5a;
+
+  border-color: #625e5a;
+}
+
+
+.give-up-result {
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   Next message
+======================================== */
+
+.next-message {
+  display: inline-block;
+
+  margin-top: 17px;
+
+  padding: 5px 9px;
+
+  color: var(--text-muted);
+
+  background: #f6f5f4;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: min(100% - 20px, 720px);
+
+    padding-top: 32px;
+
+    padding-bottom: 45px;
+  }
+
+
+  h1 {
+    font-size: 29px;
+  }
+
+
+  h1::after {
+    margin-bottom: 30px;
+  }
+
+
+  .genre-section,
+  .quiz-card {
+    padding: 21px;
+
+    border-radius: 15px;
+  }
+
+
+  .quiz-card {
+    min-height: 390px;
+  }
+
+
+  .question {
+    font-size: 20px;
+  }
+
+
+  .button-group {
+    grid-template-columns: 1fr;
+  }
+
+
+  .button-group button,
+  .primary-button {
+    width: 100%;
+  }
+
+}
+
+#notes {
+    color: #888;
+    font-size: 12px;
 }
